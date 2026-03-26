@@ -1,20 +1,18 @@
 .header{
-display: flex;
-justify-content: space-between;
-align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
+
 .cardWrapper{
     margin-top: 18px;
-   
 }
 .wrapper{
     display: flex;
-    gap:30px;
+    gap: 40px;
     flex-wrap: wrap;
-    
 }
 .toggleText{
+    color: var(--color-primary);
     cursor: pointer;
-    color:#34C94B;
-   
 }

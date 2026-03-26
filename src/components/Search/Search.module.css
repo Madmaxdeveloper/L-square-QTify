@@ -1,22 +1,23 @@
-.wrapper{
+.wrapper {
     display: flex;
-    align-items: stretch;
+    align-items: center;
     height: 48px;
-
-}
-.search{
-    border-radius: 0px 8px 8px 0px;
-    padding: 14px 20px;
-    height: 100%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    width: 502px;
-}
-.searchButton{
-    border-radius: 0px 8px 8px 0px;
-    padding: 14px 20px;
-    height: 100%;
-    border: 1px solid #121212;
-    border-left: none;
-    cursor: pointer;
-}
+  }
+  .search{
+      width: 502px;
+      height: 100%;
+      border-radius: 8px;
+      border: 1px solid var(--color-black);
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      padding: 14px 20px;
+  
+  }
+  .searchButton{
+      border-radius: 0px 8px 8px 0px;
+      border-left: none;
+      border: 1px solid var(--color-black);
+      cursor: pointer;
+      height: 100%;
+      padding: 14px 20px;
+  }

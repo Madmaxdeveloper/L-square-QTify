@@ -1,48 +1,35 @@
-import axios from "axios";
+import axios from 'axios'
 
-const config = {
-    endpoint: {
-        TopAlbum: "https://qtify-backend-labs.crio.do/albums/top",
-        NewAlbum: "https://qtify-backend-labs.crio.do/albums/new",
-        Songs: "https://qtify-backend-labs.crio.do/songs",
-        genres: "https://qtify-backend-labs.crio.do/genres",
-    },
-};
+export const BACKEND_ENPOINT = "https://qtify-backend-labs.crio.do"
 
-const fetchTopAlbum = async() => {
-    try {
-        let res = await axios.get(config.endpoint.TopAlbum);
-        return res.data;
-    } catch (err) {
-        return new Error("Failed to Fetch !", err);
+export const fetchTopAlbums = async() => {
+    try{
+        const res = await axios.get(`${BACKEND_ENPOINT}/albums/top`);
+        console.log(res.data)
+        return res.data
+    }catch(error){
+        console.log(error)
+        return null
     }
-};
-
-const fetchNewAlbum = async() => {
-    try {
-        let res = await axios.get(config["endpoint"]["NewAlbum"]);
-        return res.data;
-    } catch (err) {
-        return new Error("Failed to Fetch !", err);
+}
+export const fetchNewAlbums = async() => {
+    try{
+        const res = await axios.get(`${BACKEND_ENPOINT}/albums/new`);
+        return res.data
     }
-};
-
-const fetchSongs = async() => {
-    try {
-        let res = await axios.get(config.endpoint.Songs);
-        return res.data;
-    } catch (err) {
-        return new Error("Failed to Fetch !", err);
+    catch(error){
+        console.log(error)
+        return null
     }
-};
+}
 
-const fetchGenres = async() => {
-    try {
-        let res = await axios.get(config["endpoint"].genres);
-        return res.data;
-    } catch (err) {
-        return new Error("Failed to Fetch !", "err");
+export const fetchSongs = async() => {
+    try{
+        const res = await axios.get(`${BACKEND_ENPOINT}/songs`);
+        return res.data
     }
-};
-
-export { fetchTopAlbum, fetchNewAlbum, fetchSongs, fetchGenres };
+    catch(error){
+        console.log(error)
+        return null
+    }
+}
