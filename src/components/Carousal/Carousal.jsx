@@ -1,45 +1,37 @@
-// import React, { useEffect } from "react";
-// import styles from "./Carousal.module.css";
-// //@ts-ignore
-// import Swiper from "swiper";
-// import { useSwiper,SwiperSlide  } from 'swiper/react';
-// import "swiper/css";
-// import  CarousalLeftNavigation  from "./CarousalLeftNavigation/CarousalLeftNavigation";
-// import  CarousalRightNavigation  from "./CarousalRightNavigation/CarousalRightNavigation";
- import { Navigation} from 'swiper/modules';
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import styles from "./Carousal.module.css";
+import { useEffect } from "react";
 
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
-import styles from './Carousal.module.css';
-import { useEffect } from 'react';
-
-import 'swiper/css'
-// import { CarousalLeftNavigation } from './CarousalLeftNavigation/CarousalLeftNavigation';
-// import { CarousalRightNavigation } from './CarousalRightNavigation/CarousalRightNavigation';
+import "swiper/css";
 
 const Controls = ({ data }) => {
-   
   const swiper = useSwiper();
+
   useEffect(() => {
     swiper.slideTo(0);
-  }, [data]);
-  return <></>;
+  }, [swiper]);
+
+  return null;
 };
-const Carousal = ({ data,renderCardComponent }) => {
+
+const Carousal = ({ data, renderCardComponent }) => {
   return (
     <div className={styles.Wrapper}>
       <Swiper
         initialSlide={0}
-        modules={{ Navigation }}
+        modules={[Navigation]}
         slidesPerView={"auto"}
         spaceBetween={40}
-        allowTouchMove
+        allowTouchMove={true}
       >
         <Controls data={data} />
-        {/* <CarousalLeftNavigation/>
-        <CarousalRightNavigation/> */}
-        {data.map((item)=>{
-            <SwiperSlide>{renderCardComponent(item)}</SwiperSlide>
-        })}
+
+        {data.map((item, index) => (
+          <SwiperSlide key={index}>
+            {renderCardComponent(item)}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
